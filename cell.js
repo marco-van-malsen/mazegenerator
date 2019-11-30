@@ -65,10 +65,10 @@ class Cell {
 
     var myAlpha = this.visited ? 255 : 25;
     stroke(255, myAlpha)
-    if (this.walls[0]) line(x, y, x + w, y);
-    if (this.walls[1]) line(x + w, y, x + w, y + w);
-    if (this.walls[2]) line(x + w, y + w, x, y + w);
-    if (this.walls[3]) line(x, y + w, x, y);
+    if (this.walls[0]) line(x + 1, y, x + w - 1, y); // top
+    if (this.walls[1]) line(x + w, y + 1, x + w, y + w - 1); // right
+    if (this.walls[2]) line(x + w - 1, y + w, x + 1, y + w); // bottom
+    if (this.walls[3]) line(x, y + w - 1, x, y + 1); // left
 
     if (this.onstack) {
       noStroke();
