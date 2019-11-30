@@ -24,8 +24,8 @@ class Cell {
     this.onstack = false; // is cell on the stack, used for statistics
     this.visited = false; // has cell been visited
     this.walls = [true, true, true, true]; // top, right, bottom, left
-    this.x = this.i * w; // x-coordinate of upper-left-corner of cell
-    this.y = statsHeight + this.j * w; // y-coordinate of upper-left-corner of cell
+    this.x = this.i * w + 0.5 * (width - (cols * w)); // x-coordinate of upper-left-corner of cell
+    this.y = statsHeight + this.j * w + 0.5 * (height - statsHeight - (rows * w)); // y-coordinate of upper-left-corner of cell
   }
 
   // check if neighbor cells (top, right, bottom, left) can be visited 
