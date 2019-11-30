@@ -23,7 +23,7 @@ var grid = []; // The Grid
 var rows; // number of rows on the grid
 var stack = []; // stack for backtracker
 var statsHeight = 20; // heoiht of statusbar in pixels
-var w = 40; // cell width and height
+var w = 25; // cell width and height
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -52,12 +52,21 @@ function draw() {
   // draw statistics
   fill(255);
   noStroke();
+
+  // title
   textAlign(CENTER, CENTER);
   text("MAZE-GENERATOR", 0.5 * width, 0.5 * statsHeight);
-  textAlign(LEFT, CENTER);
-  text("Stack length: " + stack.length, 5, 0.5 * statsHeight);
-  textAlign(RIGHT, CENTER);
-  text(nfc((cellsVisited / (grid.length - 1) * 100), 2) + "% Completed", cols * w - 5, 0.5 * statsHeight);
+
+  //  statistics
+  if (cellsVisited < grid.length - 1 & stack.length > 0) {
+    // stack length
+    textAlign(LEFT, CENTER);
+    text("Stack Length: " + stack.length, 5, 0.5 * statsHeight);
+
+    // progress as percentage
+    textAlign(RIGHT, CENTER);
+    text(nfc((cellsVisited / (grid.length - 1) * 100), 2) + "% Completed", cols * w - 5, 0.5 * statsHeight);
+  }
 
   // draw the grid
   for (let i = 0; i < grid.length; i++) {
