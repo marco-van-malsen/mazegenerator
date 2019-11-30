@@ -1,3 +1,6 @@
+// Marco van Malsen
+
+// Original created by
 // Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
@@ -92,6 +95,7 @@ function draw() {
   }
 }
 
+// return index in array for cell at given row (j) and column (i)
 function index(i, j) {
   if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) {
     return -1;
@@ -99,7 +103,7 @@ function index(i, j) {
   return i + j * cols;
 }
 
-
+// remove walls between current and next cell
 function removeWalls(c, n) {
   let x = c.i - n.i;
   let y = c.j - n.j;

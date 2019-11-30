@@ -1,3 +1,6 @@
+// Marco van Malsen
+
+// Original created by
 // Daniel Shiffman
 // http://codingtra.in
 // http://patreon.com/codingtrain
@@ -11,18 +14,21 @@
 // Depth-first search
 // Recursive backtracker
 // https://en.wikipedia.org/wiki/Maze_generation_algorithm
+// https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_backtracker
 
+// Cell class
 class Cell {
   constructor(i, j) {
     this.i = i; // column index
     this.j = j; // row index
-    this.onstack = false;
-    this.visited = false;
+    this.onstack = false; // is cell on the stack, used for statistics
+    this.visited = false; // has cell been visited
     this.walls = [true, true, true, true]; // top, right, bottom, left
-    this.x = this.i * w;
-    this.y = statsHeight + this.j * w;
+    this.x = this.i * w; // x-coordinate of upper-left-corner of cell
+    this.y = statsHeight + this.j * w; // y-coordinate of upper-left-corner of cell
   }
 
+  // check if neighbor cells (top, right, bottom, left) can be visited 
   checkNeighbors() {
     let neighbors = [];
 
@@ -52,7 +58,7 @@ class Cell {
     rect(this.x, this.y, w, w);
   }
 
-  // show cell, draw walls unless removed
+  // show cell, draw walls
   show() {
     let x = this.x;
     let y = this.y;
