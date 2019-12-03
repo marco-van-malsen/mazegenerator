@@ -54,7 +54,7 @@ class Cell {
   // highlight cell (current cell only)
   highlight() {
     noStroke();
-    fill(0, 0, 255, 255);
+    fill(255, 0, 0, 255);
     rect(this.x, this.y, w, w);
   }
 
@@ -72,7 +72,7 @@ class Cell {
 
     if (this.onstack) {
       noStroke();
-      fill(0, 0, 255, 50);
+      fill(0, 0, 255, 100);
       rect(x, y, w, w);
     }
   }
