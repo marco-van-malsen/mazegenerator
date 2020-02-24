@@ -19,11 +19,14 @@
 // Cell class
 class Cell {
   constructor(i, j) {
+    this.bottom = true;
     this.i = i; // column index
     this.j = j; // row index
+    this.left = true;
     this.onstack = false; // is cell on the stack, used for statistics
+    this.right = true;
+    this.top = true;
     this.visited = false; // has cell been visited
-    this.walls = [true, true, true, true]; // top, right, bottom, left
     this.x = this.i * w + 0.5 * (width - (cols * w)); // x-coordinate of upper-left-corner of cell
     this.y = statsHeight + this.j * w + 0.5 * (height - statsHeight - (rows * w)); // y-coordinate of upper-left-corner of cell
   }
@@ -65,10 +68,10 @@ class Cell {
 
     var myAlpha = this.visited ? 255 : 25;
     stroke(255, myAlpha)
-    if (this.walls[0]) line(x, y, x + w, y); // top
-    if (this.walls[1]) line(x + w, y, x + w, y + w); // right
-    if (this.walls[2]) line(x + w, y + w, x, y + w); // bottom
-    if (this.walls[3]) line(x, y + w, x, y); // left
+    if (this.top) line(x, y, x + w, y);
+    if (this.right) line(x + w, y, x + w, y + w);
+    if (this.bottom) line(x + w, y + w, x, y + w);
+    if (this.left) line(x, y + w, x, y);
 
     if (this.onstack) {
       noStroke();

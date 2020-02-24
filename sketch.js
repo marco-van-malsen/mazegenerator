@@ -118,18 +118,18 @@ function removeWalls(c, n) {
   let y = c.j - n.j;
 
   if (x === 1) {
-    c.walls[3] = false;
-    n.walls[1] = false;
+    c.left = false;
+    n.right = false;
   } else if (x === -1) {
-    c.walls[1] = false;
-    n.walls[3] = false;
+    c.right = false;
+    n.left = false;
   }
 
   if (y === 1) {
-    c.walls[0] = false;
-    n.walls[2] = false;
+    c.top = false;
+    n.bottom = false;
   } else if (y === -1) {
-    c.walls[2] = false;
-    n.walls[0] = false;
+    c.bottom = false;
+    n.top = false;
   }
 }
