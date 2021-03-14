@@ -22,7 +22,7 @@ var current; // currently active cell
 var grid = []; // The Grid
 var rows; // number of rows on the grid
 var stack = []; // stack for backtracker
-var statsHeight = 20; // heoiht of statusbar in pixels
+var statsHeight = 20; // height of statusbar in pixels
 var w = 25; // cell width and height
 
 function setup() {
@@ -69,9 +69,7 @@ function draw() {
   }
 
   // draw the grid
-  for (let i = 0; i < grid.length; i++) {
-    grid[i].show();
-  }
+  for (let i = 0; i < grid.length; i++) grid[i].show();
 
   // highlight the current cell
   if (cellsVisited > 0 & stack.length > 0) current.highlight();
@@ -115,19 +113,22 @@ function index(i, j) {
 // remove walls between current and next cell
 function removeWalls(c, n) {
   let x = c.i - n.i;
-  let y = c.j - n.j;
 
   if (x === 1) {
     c.left = false;
     n.right = false;
+    return
   } else if (x === -1) {
     c.right = false;
     n.left = false;
+    return
   }
-
+  
+  let y = c.j - n.j;
   if (y === 1) {
     c.top = false;
     n.bottom = false;
+    return
   } else if (y === -1) {
     c.bottom = false;
     n.top = false;
